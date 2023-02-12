@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/pageCount.css" rel="stylesheet" type="text/css">
+    <title>Page Count</title>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="main-content">
+        <div class="content">
+            <img class="image character" src="images/nanase-haruka.png">
+            <div class="decs-content">
+                <strong>Nanase Haruka</strong>
+                <p>Haruka is a muscular young man with blue eyes and short, 
+                    straight black hair bangs that dip between his eyes.
+                </p>
+            </div>
+            <div class="sub-content">
+                <strong>Free!</strong>
+                <p class="box-count" id="pageCount">number</p>
+            </div>
+            <div class="btn">
+                <a href="/">Back</a>
+            </div>
+        </div>
+    </div>
+<script>
+    fetch('/count') 
+        .then((response) => response.json())
+        .then(value => {
+            document.getElementById('pageCount').innerHTML = value;
+        });
+</script>
+</body>
+</html>

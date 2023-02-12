@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/pageTime.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="main-content">
+        <div class="sub-content">
+            <div class="top-content">
+                <h2 class="title">Coming Soon</h2>
+            </div>
+            <div class="container">
+                <div style="width: 100px; padding-right: 20px;" class="box">
+                    <p id="days"></p>
+                    <h4 class="subtext">Days</h4>
+                </div>
+                <div class="box">
+                    <p id="hours"></p>
+                    <h4 class="subtext">Hours</h4>
+                </div>
+                <div class="box">
+                    <p id="minutes"></p>
+                    <h4 class="subtext">Minutes</h4>
+                </div>
+                <div class="box">
+                    <p id="seconds"></p>
+                    <h4 class="subtext">Seconds</h4>
+                </div>
+            </div>
+            <a href="/" class="btn">Back</a>
+        </div>
+    </div>
+    <script>
+        // Set the date 
+        var countDate = new Date("April 1, 2023 16:05:25").getTime();
+
+        var time = () => {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDate - now;
+
+             // Time calculations for days, hours, minutes and seconds
+             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+             var seconds = Math.floor(distance % (1000 * 60) / 1000);
+
+             // Output the result 
+             document.querySelector("#days").textContent = days;
+             document.querySelector('#hours').textContent = hours;
+             document.querySelector('#minutes').textContent = minutes;
+             document.querySelector('#seconds').textContent = seconds;
+
+        }
+        // Update / Call the count down every 1 seconds
+        time(); 
+        setInterval(time, 1000);
+    </script>
+</body>
+</html>

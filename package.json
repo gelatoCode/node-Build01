@@ -1,0 +1,16 @@
+{
+  "name": "node-build",
+  "version": "1.0.0",
+  "description": "random content [ concept like sign up @ login ]",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-persist": "^3.1.0",
+    "nodemon": "^2.0.20"
+  }
+}
